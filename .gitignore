@@ -36,3 +36,4 @@ _static
 
 # Unnecessary file
 docs/*
+*.sh
