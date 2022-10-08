@@ -1,0 +1,35 @@
+
+*.xml
+
+*.iml
+
+*.pyc
+
+build/
+docs/build/
+.ipynb_checkpoints
+
+# Tox puts virtualenvs here by default.
+.tox/
+
+# coverage.py outputs.
+cover
+.coverage
+
+# Intermediate outputs from building distributions for PyPI.
+dist
+*.egg-info/
+
+# Emacs temp files.
+*~
+
+.idea
+.noseids
+update
+.python-version
+.pre-commit-config.yaml
+conda/recipe
+_static
+
+# Jupyter notebook
+*.DS_Store
