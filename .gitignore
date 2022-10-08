@@ -37,3 +37,4 @@ _static
 # Unnecessary file
 docs/*
 *.sh
+.venv
