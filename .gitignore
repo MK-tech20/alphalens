@@ -33,3 +33,6 @@ _static
 
 # Jupyter notebook
 *.DS_Store
+
+# Unnecessary file
+docs/*
