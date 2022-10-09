@@ -295,7 +295,7 @@ def compute_forward_returns(
     if factor_dateindex.freq:
         freq = factor_dateindex.freq
     else:
-        freq = infer_trading_calendar(factor_dateindex, prices.index)
+        freq = infer_trading_calendar(factor_dateindex, prices.index)#CustomBusinessDayが作られる
 
     factor_dateindex = factor_dateindex.intersection(prices.index)
 
@@ -364,11 +364,18 @@ def compute_forward_returns(
         ),
         inplace=True,
     )
+    
     df = df.reindex(factor.index)
 
+    
     # now set the columns correctly
     df = df[column_list]
-    df.index.levels[0].freq = freq
+    #df.index.levels[0].freq = freq       # ここでエラーが発生する
+    
+    #df = df.asfreq(freq)
+    #新しく追加：pandasのdatetimeindexのfreqをinferにより策定したCustomeBussinesDayにしたいのだがうまくいかないので、以下のように編集
+    #https://stackoverflow.com/questions/29150346/pandas-modify-a-particular-level-of-multiindex
+    #df.index = factor.index.set_levels(pd.date_range(start = min(factor.index.levels[0]), end = max(factor.index.levels[0]), freq=freq),level=0)
     df.index.set_names(["date", "asset"], inplace=True)
 
     return df
