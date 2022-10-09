@@ -38,3 +38,4 @@ _static
 docs/*
 *.sh
 .venv
+finance/*
