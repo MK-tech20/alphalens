@@ -42,3 +42,4 @@ finance/
 tmp/
 *.log
 __pycashe__/
+*.pyc
