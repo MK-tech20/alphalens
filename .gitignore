@@ -35,7 +35,8 @@ _static
 *.DS_Store
 
 # Unnecessary file
-docs/*
+docs/
 *.sh
 .venv
-finance/*
+finance/
+tmp/
