@@ -888,6 +888,12 @@ def get_clean_factor_and_forward_returns(
         max_loss=max_loss,
         zero_aware=zero_aware,
     )
+    
+    #I added here to solve some error because of absense of freq.
+    factor_idx = factor_data.index.levels[0]
+    freq = infer_trading_calendar(factor_idx,factor_idx)
+    factor_data.index = factor_data.index.set_levels(pd.date_range(min(factor_idx), max(factor_idx), freq=freq), level=0)
+    
     return factor_data
 
 
